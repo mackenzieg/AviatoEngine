@@ -3,6 +3,9 @@
 
 #include <cmath>
 
+#define FLOAT_EPSILON 0.00001
+#define DOUBLE_EPSILON 0.00001
+
 template<class T>
 class Vector3 {
 public:
@@ -54,7 +57,7 @@ public:
 
     Vector3 &operator/(const T &other);
 
-    bool operator==(const Vector3<T> &other) const;
+    bool inline operator==(const Vector3<T> &other) const;
 
     bool operator!=(const Vector3<T> &other) const;
 
@@ -208,10 +211,29 @@ Vector3<T> &Vector3<T>::operator/(const T &other) {
 //TODO fix
 template<class T>
 bool Vector3<T>::operator==(const Vector3<T> &other) const {
-
     return x == other.x &&
            y == other.y &&
            z == other.z;
+}
+
+template<>
+bool Vector3<float>::operator==(const Vector3<float> &other) const {
+    float deltaX = x - other.x;
+    float deltaY = y - other.y;
+    float deltaZ = z - other.z;
+    return ((deltaX < FLOAT_EPSILON) && (-deltaX < FLOAT_EPSILON)) &&
+            ((deltaY < FLOAT_EPSILON) && (-deltaY < FLOAT_EPSILON)) &&
+            ((deltaZ < FLOAT_EPSILON) && (-deltaZ < FLOAT_EPSILON));
+}
+
+template<>
+bool Vector3<double>::operator==(const Vector3<double> &other) const {
+    double deltaX = x - other.x;
+    double deltaY = y - other.y;
+    double deltaZ = z - other.z;
+    return ((deltaX < DOUBLE_EPSILON) && (-deltaX < DOUBLE_EPSILON)) &&
+           ((deltaY < DOUBLE_EPSILON) && (-deltaY < DOUBLE_EPSILON)) &&
+           ((deltaZ < DOUBLE_EPSILON) && (-deltaZ < DOUBLE_EPSILON));
 }
 
 
