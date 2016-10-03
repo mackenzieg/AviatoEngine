@@ -1,0 +1,10 @@
+#ifndef AVIATOENGINE_WINDOW_H
+#define AVIATOENGINE_WINDOW_H
+
+
+class Window {
+
+};
+
+
+#endif //AVIATOENGINE_WINDOW_H

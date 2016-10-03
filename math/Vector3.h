@@ -1,0 +1,10 @@
+#ifndef AVIATOENGINE_VECTOR3_H
+#define AVIATOENGINE_VECTOR3_H
+
+
+class Vector3 {
+
+};
+
+
+#endif //AVIATOENGINE_VECTOR3_H
