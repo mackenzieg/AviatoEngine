@@ -24,6 +24,6 @@ int main() {
 
     Vector3<double> v(1, 1, 1);
 
-    std::cout << "Hello, World!" << std::endl;
+    std::cout << "Push Test Deskto";
     return 0;
 }
