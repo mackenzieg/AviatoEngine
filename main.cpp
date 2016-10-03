@@ -3,7 +3,7 @@
 
 int main() {
 
-    Vector3<int> v(1, 1, 1);
+    Vector3<double> v(1, 1, 1);
 
     std::cout << "Hello, World!" << std::endl;
     return 0;
