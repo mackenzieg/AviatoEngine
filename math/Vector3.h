@@ -23,6 +23,10 @@ public:
 
     T distance(Vector3<T> other);
 
+    T length();
+
+    Vector3 * normalize();
+
     Vector3 &operator=(const Vector3 &other);
 
     Vector3 &operator+=(const Vector3 &other);
@@ -69,6 +73,25 @@ T Vector3<T>::distance(Vector3<T> other) {
     T deltaY = y - other.y;
     T deltaZ = z - other.z;
     return std::sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
+}
+
+template<class T>
+T Vector3<T>::length() {
+    return std::sqrt(x * x + y * y + z * z);
+}
+
+template<class T>
+Vector3<T>* Vector3<T>::normalize() {
+    T length = length();
+    T unitX = x;
+    T unitY = y;
+    T unitZ = z;
+    if(length != 0) {
+        unitX /= x;
+        unitY /= y;
+        unitZ /= z;
+    }
+    return new Vector3(unitX, unitY, unitZ);
 }
 
 template<class T>
