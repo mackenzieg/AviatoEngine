@@ -23,9 +23,23 @@ public:
 
     T distance(Vector3<T> other);
 
+    T distance(T x, T y, T z);
+
+    T distanceSquared(Vector3<T> other);
+
+    T distanceSquared(T x, T y, T z);
+
     T length();
 
-    Vector3 * normalize();
+    T dotProduct(Vector3<T> other);
+
+    T dotProduct(T x, T y, T z);
+
+    Vector3<T> *crossProduct(Vector3<T> other);
+
+    Vector3<T> *crossProduct(T x, T y, T z);
+
+    Vector3 *normalize();
 
     Vector3 &operator=(const Vector3 &other);
 
@@ -76,17 +90,65 @@ T Vector3<T>::distance(Vector3<T> other) {
 }
 
 template<class T>
+T Vector3<T>::distance(T x, T y, T z) {
+    T deltaX = this->x - x;
+    T deltaY = this->y - y;
+    T deltaZ = this->z - z;
+    return std::sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
+}
+
+template<class T>
+T Vector3<T>::distanceSquared(Vector3<T> other) {
+    T deltaX = x - other.x;
+    T deltaY = y - other.y;
+    T deltaZ = z - other.z;
+    return (deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
+}
+
+template<class T>
+T Vector3<T>::distanceSquared(T x, T y, T z) {
+    T deltaX = this->x - x;
+    T deltaY = this->y - y;
+    T deltaZ = this->z - z;
+    return (deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
+}
+
+template<class T>
 T Vector3<T>::length() {
     return std::sqrt(x * x + y * y + z * z);
 }
 
 template<class T>
-Vector3<T>* Vector3<T>::normalize() {
+T Vector3<T>::dotProduct(Vector3<T> other) {
+    return (x * other.x + y * other.y + z * other.z);
+}
+
+template<class T>
+T Vector3<T>::dotProduct(T x, T y, T z) {
+    return (this->x * x + this->y * y + this->z * z);
+}
+
+template<class T>
+Vector3<T> *Vector3<T>::crossProduct(Vector3<T> other) {
+    return new Vector3((y * other.z - z * other.y),
+                       (z * other.x - x * other.z),
+                       (x * other.y - y * other.x));
+}
+
+template<class T>
+Vector3<T> *Vector3<T>::crossProduct(T x, T y, T z) {
+    return new Vector3((this->y * z - this->z * y),
+                       (this->z * x - this->x * z),
+                       (this->x * y - this->y * x));
+}
+
+template<class T>
+Vector3<T> *Vector3<T>::normalize() {
     T length = length();
     T unitX = x;
     T unitY = y;
     T unitZ = z;
-    if(length != 0) {
+    if (length != 0) {
         unitX /= x;
         unitY /= y;
         unitZ /= z;
@@ -245,8 +307,8 @@ bool Vector3<float>::operator==(const Vector3<float> &other) const {
     float deltaY = y - other.y;
     float deltaZ = z - other.z;
     return ((deltaX < FLOAT_EPSILON) && (-deltaX < FLOAT_EPSILON)) &&
-            ((deltaY < FLOAT_EPSILON) && (-deltaY < FLOAT_EPSILON)) &&
-            ((deltaZ < FLOAT_EPSILON) && (-deltaZ < FLOAT_EPSILON));
+           ((deltaY < FLOAT_EPSILON) && (-deltaY < FLOAT_EPSILON)) &&
+           ((deltaZ < FLOAT_EPSILON) && (-deltaZ < FLOAT_EPSILON));
 }
 
 template<>
