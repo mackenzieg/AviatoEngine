@@ -3,15 +3,43 @@
 
 #include <cstdint>
 
+#include "util/Memory.h"
+
+enum struct WindowState
+{
+    NoState = 0,
+    WindowInit,
+    WindowStarted,
+    WindowPaused,
+    WindowStopped,
+    WindowShutDown,
+};
+
 class Window {
 private:
-    const char* windowTitle;
-    int16_t windowHeight, windowWidth;
+    char* windowTitle;
+    uint16_t windowWidth, windowHeight;
+
+    bool vsyncEnabled;
+
+    WindowState winState = WindowState::NoState;
 
 public:
     Window();
+    Window(uint16_t windowWidth, uint16_t windowHeight);
+    Window(const char *windowTitle, uint16_t windowWidth, uint16_t windowHeight);
+    Window(const char *windowTitle, uint16_t windowWidth, uint16_t windowHeight, bool vsyncEnabled);
 
-    Window(const char *windowTitle, int16_t windowHeight, int16_t windowWidth);
+    ~Window();
+
+    void setTitle(const char* newWindowTitle);
+    void setWindowSize(uint16_t newWindowWidth, uint16_t newWindowHeight);
+    void setVsync(bool newVsyncState);
+
+    void Init();
+    void Start();
+    void Pause();
+    void Stop();
 };
 
 
