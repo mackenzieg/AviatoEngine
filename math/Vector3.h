@@ -6,16 +6,13 @@
 #define FLOAT_EPSILON 0.00001
 #define DOUBLE_EPSILON 0.00001
 
+//TODO possibly move some vector math to the gpu
+
 template<class T>
 class Vector3 {
 public:
 
     T x, y, z;
-
-//    union {
-//        T x, y, z;
-//        T vector[3];
-//    };
 
     Vector3();
 
@@ -75,11 +72,19 @@ public:
 
     Vector3 &operator/(const T &other);
 
-    bool inline operator==(const Vector3<T> &other) const;
+    bool operator==(const Vector3<T> &other) const;
 
     bool operator!=(const Vector3<T> &other) const;
 
+    friend std::ostream& operator<< (std::ostream& stream, const Vector3<T> &other);
+
 };
+
+template<class T>
+Vector3<T>::Vector3() : x(0), y(0), z(0) {}
+
+template<class T>
+Vector3<T>::Vector3(T x, T y, T z) : x(x), y(y), z(z) {}
 
 template<class T>
 T Vector3<T>::distance(Vector3<T> other) {
@@ -321,17 +326,15 @@ bool Vector3<double>::operator==(const Vector3<double> &other) const {
            ((deltaZ < DOUBLE_EPSILON) && (-deltaZ < DOUBLE_EPSILON));
 }
 
-
-//TODO fix
 template<class T>
 bool Vector3<T>::operator!=(const Vector3<T> &other) const {
     return !(other == *this);
 }
 
 template<class T>
-Vector3<T>::Vector3() : x(0), y(0), z(0) {}
-
-template<class T>
-Vector3<T>::Vector3(T x, T y, T z) : x(x), y(y), z(z) {}
+friend std::ostream& operator<< (std::ostream& stream, const Vector3<T> &other) {
+    stream << "(" << other.x << "," << other.y << "," << other.z << ")";
+    return stream;
+}
 
 #endif //AVIATOENGINE_VECTOR3_H

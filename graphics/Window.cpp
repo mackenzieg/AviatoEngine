@@ -6,7 +6,7 @@ Window::Window()
           windowHeight(0),
           vsyncEnabled(false)
 {
-    this->Init();
+    this->init();
 }
 
 Window::Window(uint16_t windowWidth, uint16_t windowHeight)
@@ -15,7 +15,7 @@ Window::Window(uint16_t windowWidth, uint16_t windowHeight)
           windowHeight(windowHeight),
           vsyncEnabled(false)
 {
-    this->Init();
+    this->init();
 }
 
 Window::Window(char *windowTitle, uint16_t windowHeight, uint16_t windowWidth)
@@ -25,7 +25,7 @@ Window::Window(char *windowTitle, uint16_t windowHeight, uint16_t windowWidth)
           vsyncEnabled(false)
 
 {
-    this->Init();
+    this->init();
 }
 
 Window::Window(char *windowTitle, uint16_t windowHeight, uint16_t windowWidth, bool vsyncEnabled)
@@ -35,7 +35,7 @@ Window::Window(char *windowTitle, uint16_t windowHeight, uint16_t windowWidth, b
           vsyncEnabled(vsyncEnabled)
 
 {
-    this->Init();
+    this->init();
 }
 
 Window::~Window()
@@ -60,22 +60,22 @@ void Window::setVsync(bool newVsyncState)
     this->vsyncEnabled = newVsyncState;
 }
 
-void Window::Init()
+void Window::init()
 {
     winState = WindowState::WindowInit;
 }
 
-void Window::Start()
+void Window::start()
 {
     winState = WindowState::WindowStarted;
 }
 
-void Window::Pause()
+void Window::pause()
 {
     winState = WindowState::WindowPaused;
 }
 
-void Window::Stop()
+void Window::stop()
 {
     winState = WindowState::WindowStopped;
 }

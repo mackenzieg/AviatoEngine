@@ -24,6 +24,7 @@ int main() {
     printf("Double epsilon %.12f\n", (1 + std::pow(2, -52)) - 1);
 
     Vector3<double> v(1, 1, 1);
+    Vector3<double> f(1, 2, 1);
 
     std::cout << "Push Test Deskto";
     return 0;
