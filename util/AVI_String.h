@@ -2,6 +2,7 @@
 #define AVIATOENGINE_AVI_STRING_H
 
 #include <cstdint>
+#include <iostream>
 #include <cstring>
 
 #include "AVI_Memory.h"
@@ -41,6 +42,8 @@ public:
     bool operator==(const AVI_String &other) const;
 
     bool operator!=(const AVI_String &other) const;
+
+    std::ostream& operator<< (std::ostream& stream);
 
     char* getHandle();
 

@@ -1,8 +1,8 @@
-#include <iostream>
 #include <cfloat>
 #include <cstdio>
 
 #include "Vector3.h"
+#include "AVI_String.h"
 
 #define ERROR_CHECKING 1
 
@@ -28,6 +28,14 @@ int main() {
 
     Vector3<double> v(1, 1, 1);
     Vector3<double> f(1, 2, 1);
+
+    AVI_String* ssssss = new AVI_String("FUK Me");
+
+    std::cout << ssssss << std::endl;
+
+    ssssss->append("FUK ME HARDER");
+
+    std::cout << ssssss << std::endl;
 
     std::cout << v << std::endl;
 

@@ -57,12 +57,12 @@ AVI_String& AVI_String::operator=(const char* other) {
 
 AVI_String& AVI_String::operator+=(const AVI_String &other) {
     this->append(other.str);
-    return (AVI_String &) this;
+    return *(this);
 }
 
 AVI_String& AVI_String::operator+=(const char* other) {
     this->append((char *) other);
-    return (AVI_String &) this;
+    return *(this);
 }
 
 AVI_String& AVI_String::operator+(const AVI_String &other) {
@@ -96,9 +96,10 @@ bool AVI_String::operator!=(const AVI_String &other) const {
     return false;
 }
 
-//char* AVI_String::subString(uint16_t start, uint16_t end) {
-//
-//}
+std::ostream& AVI_String::operator<<(std::ostream& stream) {
+    stream << this->str;
+    return stream;
+}
 
 char AVI_String::atLocation(uint16_t location) {
 #ifdef ERROR_CHECKING
@@ -117,6 +118,6 @@ uint16_t AVI_String::getLength() {
     return length;
 }
 
-~AVI_String::AVI_String() {
+AVI_String::~AVI_String() {
     Memory::safeDeleteArray(str);
 }
