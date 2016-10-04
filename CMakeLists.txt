@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.6)
 project(AviatoEngine)
 
+set(CMAKE_BUILD_TYPE Debug)
+
 include(CheckCXXCompilerFlag)
 
 CHECK_CXX_COMPILER_FLAG("-std=c++14" COMPILER_SUPPORTS_CXX14)
@@ -13,7 +15,6 @@ elseif(COMPILER_SUPPORTS_CXX11)
 else()
     message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++14 or C++11 support. Please use a different C++ compiler.")
 endif()
-
 
 include_directories(util)
 include_directories(graphics)
@@ -28,5 +29,8 @@ set(SOURCE_FILES
         math/Vector3.h
         graphics/api/Platform.h
         graphics/Window.cpp graphics/Window.h)
+
+file(GLOB SOURCES "Aviato/*.cpp")
+file(GLOB HEADERS "Aviato/*.h")
 
 add_executable(AviatoEngine ${SOURCE_FILES})
