@@ -6,10 +6,10 @@
 
     #define WIN32_LEAN_AND_MEAN 1
     #include <Windows.h>
-#elif defined(_apple) //TODO : Check if Apple Macro is Correct
+#elif defined(__APPLE__)
     #define AVI_PLATFORM_APPLE 1
 
-#elif defined(_unix) //TODO : Check if Linux Macro is Correct
+#elif defined(__unix__)
     #define AVI_PLATFORM_LINUX 1
 
 #else
