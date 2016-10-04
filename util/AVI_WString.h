@@ -1,0 +1,10 @@
+#ifndef AVIATOENGINE_AVI_WSTRING_H
+#define AVIATOENGINE_AVI_WSTRING_H
+
+
+class AVI_WString {
+
+};
+
+
+#endif //AVIATOENGINE_AVI_WSTRING_H

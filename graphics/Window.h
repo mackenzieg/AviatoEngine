@@ -3,7 +3,7 @@
 
 #include <cstdint>
 
-#include "Memory.h"
+#include "AVI_Memory.h"
 
 enum struct WindowState
 {
