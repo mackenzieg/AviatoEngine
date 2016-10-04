@@ -18,8 +18,7 @@ Window::Window(uint16_t windowWidth, uint16_t windowHeight)
     this->Init();
 }
 
-
-Window::Window(const char *windowTitle, int16_t windowHeight, int16_t windowWidth)
+Window::Window(char *windowTitle, uint16_t windowHeight, uint16_t windowWidth)
         : windowTitle(windowTitle),
           windowWidth(windowWidth),
           windowHeight(windowHeight),
@@ -29,7 +28,7 @@ Window::Window(const char *windowTitle, int16_t windowHeight, int16_t windowWidt
     this->Init();
 }
 
-Window::Window(const char *windowTitle, int16_t windowHeight, int16_t windowWidth, bool vsyncEnabled)
+Window::Window(char *windowTitle, uint16_t windowHeight, uint16_t windowWidth, bool vsyncEnabled)
         : windowTitle(windowTitle),
           windowWidth(windowWidth),
           windowHeight(windowHeight),
@@ -45,38 +44,38 @@ Window::~Window()
     Memory::SafeDelete(windowTitle);
 }
 
-Window::setTitle(const char* newWindowTitle)
+void Window::setTitle(char* newWindowTitle)
 {
-    this->windowTitle = newWindowtitle;
+    this->windowTitle = newWindowTitle;
 }
 
-Window::setWindowSize(uint16_t newWindowWidth, uint16_t newWindowHeight)
+void Window::setWindowSize(uint16_t newWindowWidth, uint16_t newWindowHeight)
 {
     this->windowWidth = newWindowWidth;
     this->windowHeight = newWindowHeight;
 }
 
-Window::setVsync(bool newVsyncState)
+void Window::setVsync(bool newVsyncState)
 {
     this->vsyncEnabled = newVsyncState;
 }
 
-Window::Init()
+void Window::Init()
 {
     winState = WindowState::WindowInit;
 }
 
-Window::Start()
+void Window::Start()
 {
     winState = WindowState::WindowStarted;
 }
 
-Window::Pause()
+void Window::Pause()
 {
     winState = WindowState::WindowPaused;
 }
 
-Window::Stop()
+void Window::Stop()
 {
- winState = WindowState::WindowStopped;
+    winState = WindowState::WindowStopped;
 }

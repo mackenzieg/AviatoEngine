@@ -3,7 +3,7 @@
 
 #include <cstdint>
 
-#include "util/Memory.h"
+#include "Memory.h"
 
 enum struct WindowState
 {
@@ -27,12 +27,12 @@ private:
 public:
     Window();
     Window(uint16_t windowWidth, uint16_t windowHeight);
-    Window(const char *windowTitle, uint16_t windowWidth, uint16_t windowHeight);
-    Window(const char *windowTitle, uint16_t windowWidth, uint16_t windowHeight, bool vsyncEnabled);
+    Window(char *windowTitle, uint16_t windowWidth, uint16_t windowHeight);
+    Window(char *windowTitle, uint16_t windowWidth, uint16_t windowHeight, bool vsyncEnabled);
 
     ~Window();
 
-    void setTitle(const char* newWindowTitle);
+    void setTitle(char* newWindowTitle);
     void setWindowSize(uint16_t newWindowWidth, uint16_t newWindowHeight);
     void setVsync(bool newVsyncState);
 
