@@ -1,7 +1,7 @@
 #include "Window.h"
 
 Window::Window()
-        : windowTitle(""),
+        : windowTitle((char *) ""),
           windowWidth(0),
           windowHeight(0),
           vsyncEnabled(false)
@@ -10,7 +10,7 @@ Window::Window()
 }
 
 Window::Window(uint16_t windowWidth, uint16_t windowHeight)
-        : windowTitle("GameEngine"),
+        : windowTitle((char *) "GameEngine"),
           windowWidth(windowWidth),
           windowHeight(windowHeight),
           vsyncEnabled(false)
