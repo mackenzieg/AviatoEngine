@@ -4,6 +4,8 @@
 
 #include "Vector3.h"
 
+#define ERROR_CHECKING 1
+
 int main() {
 
     float x;
