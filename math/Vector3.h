@@ -1,6 +1,8 @@
 #ifndef AVIATOENGINE_VECTOR3_H
 #define AVIATOENGINE_VECTOR3_H
 
+#include <iostream>
+
 #include "AVI_Math.h"
 
 #define FLOAT_EPSILON 0.00001

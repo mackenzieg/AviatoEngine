@@ -6,6 +6,7 @@
 
     #define WIN32_LEAN_AND_MEAN 1
     #include <Windows.h>
+
 #elif defined(__APPLE__)
     #define AVI_PLATFORM_APPLE 1
 

@@ -29,6 +29,5 @@ int main() {
 
     std::cout << v << std::endl;
 
-    std::cout << "Push Test Deskto";
     return 0;
 }
