@@ -97,6 +97,8 @@ bool AVI_String::operator!=(const AVI_String &other) const {
 }
 
 std::ostream& AVI_String::operator<<(std::ostream& stream) {
+    std::cout << "" << std::endl;
+    stream << "asdasdas";
     stream << this->str;
     return stream;
 }
