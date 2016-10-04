@@ -9,8 +9,9 @@ include_directories(math)
 
 set(SOURCE_FILES
         main.cpp
-        util/String16.cpp util/String16.h
-        util/Memory.h
+        util/AVI_String.cpp util/AVI_String.h
+        util/AVI_WString.cpp util/AVI_WString.h
+        util/AVI_Memory.h
         math/AVI_Math.h
         math/Vector3.h
         graphics/api/Platform.h

@@ -76,7 +76,7 @@ public:
 
     bool operator!=(const Vector3<T> &other) const;
 
-    friend std::ostream& operator<< (std::ostream& stream, const Vector3<T> &other);
+    std::ostream& operator<< (std::ostream& stream);
 
 };
 
@@ -332,7 +332,7 @@ bool Vector3<T>::operator!=(const Vector3<T> &other) const {
 }
 
 template<class T>
-friend std::ostream& operator<< (std::ostream& stream, const Vector3<T> &other) {
+std::ostream& operator<< (std::ostream& stream, const Vector3<T> &other) {
     stream << "(" << other.x << "," << other.y << "," << other.z << ")";
     return stream;
 }

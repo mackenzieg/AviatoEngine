@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cfloat>
+#include <cstdio>
 
 #include "Vector3.h"
 
@@ -25,6 +26,8 @@ int main() {
 
     Vector3<double> v(1, 1, 1);
     Vector3<double> f(1, 2, 1);
+
+    std::cout << v << std::endl;
 
     std::cout << "Push Test Deskto";
     return 0;

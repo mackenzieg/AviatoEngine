@@ -41,7 +41,7 @@ Window::Window(char *windowTitle, uint16_t windowHeight, uint16_t windowWidth, b
 Window::~Window()
 {
     winState = WindowState::WindowShutDown;
-    Memory::SafeDelete(windowTitle);
+    Memory::safeDelete(windowTitle);
 }
 
 void Window::setTitle(char* newWindowTitle)
