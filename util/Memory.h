@@ -3,7 +3,7 @@
 
 namespace Memory {
     template <class T>
-    void SafeDelete(T& t)
+    void safeDelete(T& t)
     {
         if (t) {
             delete t;
@@ -12,7 +12,7 @@ namespace Memory {
     }
 
     template <class T>
-    void SafeDeleteArray(T& t)
+    void safeDeleteArray(T& t)
     {
         if (t) {
             delete[] t;
@@ -21,7 +21,7 @@ namespace Memory {
     }
 
     template <class T>
-    void SafeRelease(T& t)
+    void safeRelease(T& t)
     {
         if (t) {
             t->Release();

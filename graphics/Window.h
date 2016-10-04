@@ -36,10 +36,10 @@ public:
     void setWindowSize(uint16_t newWindowWidth, uint16_t newWindowHeight);
     void setVsync(bool newVsyncState);
 
-    void Init();
-    void Start();
-    void Pause();
-    void Stop();
+    void init();
+    void start();
+    void pause();
+    void stop();
 };
 
 
