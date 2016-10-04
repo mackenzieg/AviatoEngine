@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cfloat>
-#include "math/Vector3.h"
+
+#include "Vector3.h"
 
 int main() {
 
