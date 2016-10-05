@@ -3,13 +3,15 @@
 AVI_String::AVI_String(char *input) : str(new char[DEFAULT_AVI_STRING_SIZE]) {
     length = stringLength(input);
     memcpy(str, input, length);
-    if (str[length] != '\0')
+    if (str[length] != '\0') {
         str[length] = '\0';
+    }
 }
 
 uint16_t AVI_String::stringLength(char *input) {
     uint16_t size = 0;
-    while (input[size] != '\0' || input[size] != '\n') {
+
+    while (input[size] != '\0') {
         ++size;
     }
     return size;
@@ -97,10 +99,11 @@ bool AVI_String::operator!=(const AVI_String &other) const {
 }
 
 std::ostream& AVI_String::operator<<(std::ostream& stream) {
-    std::cout << "" << std::endl;
-    stream << "asdasdas";
-    stream << this->str;
-    return stream;
+    for(int i = 0; i < length; i++) {
+        stream << str[i];
+    }
+        //stream << str;
+        return stream;
 }
 
 char AVI_String::atLocation(uint16_t location) {
