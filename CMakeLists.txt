@@ -30,7 +30,7 @@ set(SOURCE_FILES
         graphics/api/Platform.h
         graphics/Window.cpp graphics/Window.h)
 
-file(GLOB SOURCES "Aviato/*.cpp")
-file(GLOB HEADERS "Aviato/*.h")
+file(GLOB SOURCES "AviatoEngine/*.cpp")
+file(GLOB HEADERS "AviatoEngine/*.h")
 
 add_executable(AviatoEngine ${SOURCE_FILES})
