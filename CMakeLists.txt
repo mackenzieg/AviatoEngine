@@ -22,14 +22,13 @@ include_directories(math)
 
 set(SOURCE_FILES
         main.cpp
-        util/AVI_String.cpp util/AVI_String.h
         util/AVI_Memory.h
         math/AVI_Math.h
         math/Vector3.h
         graphics/api/Platform.h
         graphics/Window.cpp graphics/Window.h
         graphics/api/WIN32/Win32Window.cpp graphics/api/WIN32/Win32Window.h
-        graphics/api/Platform.h)
+        graphics/api/Platform.h util/string/AVI_String8.cpp util/string/AVI_String8.h util/string/AVI_String16.cpp util/string/AVI_String16.h)
 
 file(GLOB SOURCES "AviatoEngine/*.cpp")
 file(GLOB HEADERS "AviatoEngine/*.h")

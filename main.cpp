@@ -1,5 +1,4 @@
 #include "Vector3.h"
-#include "AVI_String.h"
 
 #define ERROR_CHECKING 1
 
