@@ -17,9 +17,7 @@ str8 str8NewLength(const void *data, uint16_t initLength) {
     if(sh == nullptr)
         return NULL;
     string = (char*) sh + AVI_STRING8_LENGTH;
-    struct AVI_String8 *ref = (AVI_String8 *) ((str8) - (sizeof(struct AVI_String8)));
-    ref->length = initLength;
-    ref->allocate = initLength;
+    str8SetLengthAllocated(string, initLength, initLength);
     memcpy(string, data, initLength);
     string[initLength] = '\0';
     return string;
