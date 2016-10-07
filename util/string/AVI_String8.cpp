@@ -16,14 +16,14 @@ uint16_t str8Length(const char *string) {
 
 /* Generates a new str8 from data with a length of initLength */
 str8 str8NewLength(const void *data, uint16_t initLength) {
-    void *sh = malloc(AVI_STRING8_LENGTH + initLength + 1);
+    void *memReference = malloc(AVI_STRING8_LENGTH + initLength + 1);
     str8 string;
     if (data == nullptr) {
-        memset(sh, 0, AVI_STRING8_LENGTH + initLength + 1);
+        memset(memReference, 0, AVI_STRING8_LENGTH + initLength + 1);
     }
-    if (sh == nullptr)
+    if (memReference == nullptr)
         return NULL;
-    string = (char *) sh + AVI_STRING8_LENGTH;
+    string = (char *) memReference + AVI_STRING8_LENGTH;
     str8SetLengthAllocated(string, initLength, initLength);
     memcpy(string, data, initLength);
     string[initLength] = '\0';
