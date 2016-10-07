@@ -78,8 +78,6 @@ public:
 
     bool operator!=(const Vector3<T> &other) const;
 
-    std::ostream& operator<< (std::ostream& stream);
-
 };
 
 template<class T>
