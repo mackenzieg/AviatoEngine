@@ -1,14 +1,10 @@
 #include "Vector3.h"
-#include "util/string/AVI_String8.h"
+#include "graphics/api/WIN32/Win32Window.h"
 
 #define ERROR_CHECKING 1
 
-using namespace std;
-
 int main() {
-
-    str8 string = str8New("Example");
-    str8Printf(string);
+    std::cin.sync_with_stdio(0);
 
     return 0;
 }

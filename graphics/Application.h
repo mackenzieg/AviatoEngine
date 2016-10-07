@@ -15,7 +15,7 @@ enum struct WindowState
     WindowShutDown,
 };
 
-class Window {
+class Application {
 private:
     char* windowTitle;
     uint16_t windowWidth, windowHeight;
@@ -25,12 +25,12 @@ private:
     WindowState winState = WindowState::NoState;
 
 public:
-    Window();
-    Window(uint16_t windowWidth, uint16_t windowHeight);
-    Window(char *windowTitle, uint16_t windowWidth, uint16_t windowHeight);
-    Window(char *windowTitle, uint16_t windowWidth, uint16_t windowHeight, bool vsyncEnabled);
+    Application();
+    Application(uint16_t windowWidth, uint16_t windowHeight);
+    Application(char *windowTitle, uint16_t windowWidth, uint16_t windowHeight);
+    Application(char *windowTitle, uint16_t windowWidth, uint16_t windowHeight, bool vsyncEnabled);
 
-    ~Window();
+    ~Application();
 
     void setTitle(char* newWindowTitle);
     void setWindowSize(uint16_t newWindowWidth, uint16_t newWindowHeight);
