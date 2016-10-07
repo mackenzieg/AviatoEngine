@@ -7,6 +7,7 @@
 
 #if defined(AVI_PLATFORM_WIN32)
 
+//Window Entry Point
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
     UNREFERENCED_PARAMETER(hPrevInstance);
