@@ -26,7 +26,7 @@ set(SOURCE_FILES
         math/AVI_Math.h
         math/Vector3.h
         graphics/api/Platform.h
-        graphics/Window.cpp graphics/Window.h
+        graphics/Application.cpp graphics/Application.h
         graphics/api/WIN32/Win32Window.cpp graphics/api/WIN32/Win32Window.h
         graphics/api/Platform.h util/string/AVI_String8.cpp util/string/AVI_String8.h util/string/AVI_String16.cpp util/string/AVI_String16.h)
 

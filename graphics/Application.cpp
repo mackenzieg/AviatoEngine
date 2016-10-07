@@ -1,6 +1,6 @@
-#include "Window.h"
+#include "Application.h"
 
-Window::Window()
+Application::Application()
         : windowTitle((char *) ""),
           windowWidth(0),
           windowHeight(0),
@@ -9,7 +9,7 @@ Window::Window()
     this->init();
 }
 
-Window::Window(uint16_t windowWidth, uint16_t windowHeight)
+Application::Application(uint16_t windowWidth, uint16_t windowHeight)
         : windowTitle((char *) "GameEngine"),
           windowWidth(windowWidth),
           windowHeight(windowHeight),
@@ -18,7 +18,7 @@ Window::Window(uint16_t windowWidth, uint16_t windowHeight)
     this->init();
 }
 
-Window::Window(char *windowTitle, uint16_t windowHeight, uint16_t windowWidth)
+Application::Application(char *windowTitle, uint16_t windowHeight, uint16_t windowWidth)
         : windowTitle(windowTitle),
           windowWidth(windowWidth),
           windowHeight(windowHeight),
@@ -28,7 +28,7 @@ Window::Window(char *windowTitle, uint16_t windowHeight, uint16_t windowWidth)
     this->init();
 }
 
-Window::Window(char *windowTitle, uint16_t windowHeight, uint16_t windowWidth, bool vsyncEnabled)
+Application::Application(char *windowTitle, uint16_t windowHeight, uint16_t windowWidth, bool vsyncEnabled)
         : windowTitle(windowTitle),
           windowWidth(windowWidth),
           windowHeight(windowHeight),
@@ -38,44 +38,44 @@ Window::Window(char *windowTitle, uint16_t windowHeight, uint16_t windowWidth, b
     this->init();
 }
 
-Window::~Window()
+Application::~Application()
 {
     winState = WindowState::WindowShutDown;
     Memory::safeDelete(windowTitle);
 }
 
-void Window::setTitle(char* newWindowTitle)
+void Application::setTitle(char* newWindowTitle)
 {
     this->windowTitle = newWindowTitle;
 }
 
-void Window::setWindowSize(uint16_t newWindowWidth, uint16_t newWindowHeight)
+void Application::setWindowSize(uint16_t newWindowWidth, uint16_t newWindowHeight)
 {
     this->windowWidth = newWindowWidth;
     this->windowHeight = newWindowHeight;
 }
 
-void Window::setVsync(bool newVsyncState)
+void Application::setVsync(bool newVsyncState)
 {
     this->vsyncEnabled = newVsyncState;
 }
 
-void Window::init()
+void Application::init()
 {
     winState = WindowState::WindowInit;
 }
 
-void Window::start()
+void Application::start()
 {
     winState = WindowState::WindowStarted;
 }
 
-void Window::pause()
+void Application::pause()
 {
     winState = WindowState::WindowPaused;
 }
 
-void Window::stop()
+void Application::stop()
 {
     winState = WindowState::WindowStopped;
 }

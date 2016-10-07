@@ -32,7 +32,7 @@ Win32Window::Win32Window(int16_t width, int16_t height) {
     WNDCLASSEX winClassEX = {};
 
     winClassEX.style = CS_HREDRAW | CS_VREDRAW | CS_OWNDC;
-    winClassEX.lpfnWndProc = WndProc; //TODO Create Own Window Proc
+    winClassEX.lpfnWndProc = WndProc; //TODO Create Own Application Proc
     winClassEX.cbClsExtra = 0;
     winClassEX.cbWndExtra = 0;
     winClassEX.hInstance = GetModuleHandle(0);
