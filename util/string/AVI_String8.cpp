@@ -1,8 +1,7 @@
-#include <cstdio>
 #include "AVI_String8.h"
 
 int str8Printf(const str8 string) {
-    return printf((char*) string);
+    return printf((char *) string);
 }
 
 /* Calculates the length of the string by looking for a null character */
@@ -17,14 +16,14 @@ uint16_t str8Length(const char *string) {
 /* Generates a new str8 from data with a length of initLength */
 str8 str8NewLength(const void *data, uint16_t initLength) {
     void *memReference = malloc(AVI_STRING8_LENGTH + initLength + 1);
-    str8 string;
-    if (data == nullptr) {
+    if (data == nullptr)
         memset(memReference, 0, AVI_STRING8_LENGTH + initLength + 1);
-    }
     if (memReference == nullptr)
         return NULL;
-    string = (char *) memReference + AVI_STRING8_LENGTH;
-    str8SetLengthAllocated(string, initLength, initLength);
+    str8 string = (char *) (((char *) memReference) + AVI_STRING8_LENGTH);
+    str8SetLength(string, initLength);
+    str8SetAllocate(string, initLength);
+    //str8SetLengthAllocated(string, initLength, initLength); //TODO fix this function
     memcpy(string, data, initLength);
     string[initLength] = '\0';
     return string;

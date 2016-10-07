@@ -8,6 +8,7 @@ int main() {
     std::cin.sync_with_stdio(0);
 
     str8 string = str8New("asd");
+    str8Printf(string);
 
     return 0;
 }
