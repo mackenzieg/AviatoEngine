@@ -104,10 +104,7 @@ bool AVI_String::operator!=(const AVI_String &other) const {
 }
 
 std::ostream& AVI_String::operator<<(std::ostream& stream) {
-    for(int i = 0; i < length; i++) {
-        stream << str[i];
-    }
-    //stream << str;
+    stream << str;
     return stream;
 }
 

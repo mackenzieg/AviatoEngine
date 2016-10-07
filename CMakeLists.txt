@@ -30,7 +30,7 @@ set(SOURCE_FILES
         graphics/api/WIN32/Win32Window.cpp graphics/api/WIN32/Win32Window.h
         graphics/api/Platform.h
         util/string/AVI_String.cpp util/string/AVI_String.h
-        util/string/AVI_WString.cpp util/string/AVI_WString.h)
+        util/string/AVI_WString.cpp util/string/AVI_WString.h util/LeakDetector.cpp util/LeakDetector.h math/Vector2.h math/Vector4.h)
 
 file(GLOB SOURCES "AviatoEngine/*.cpp")
 file(GLOB HEADERS "AviatoEngine/*.h")
