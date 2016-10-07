@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <cstring>
 #include <stdlib.h>
+#include <cstdio>
 
 typedef char* str8;
 
