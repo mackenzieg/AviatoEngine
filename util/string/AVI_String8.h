@@ -45,6 +45,8 @@ static inline uint16_t str8GetAllocated(str8 string) {
     return ((AVI_String8 *) ((str8) - (sizeof(struct AVI_String8))))->allocate;
 }
 
+int str8Printf(const str8 string);
+
 /* Calculates the length of the string by looking for a null character */
 uint16_t str8Length(char* string);
 

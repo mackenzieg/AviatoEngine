@@ -1,4 +1,9 @@
+#include <cstdio>
 #include "AVI_String8.h"
+
+int str8Printf(const str8 string) {
+    return printf((char*) string);
+}
 
 /* Calculates the length of the string by looking for a null character */
 uint16_t str8Length(const char *string) {
@@ -11,14 +16,14 @@ uint16_t str8Length(const char *string) {
 
 /* Generates a new str8 from data with a length of initLength */
 str8 str8NewLength(const void *data, uint16_t initLength) {
-    void *sh = malloc(AVI_STRING8_LENGTH + initLength + 1);
+    void *memReference = malloc(AVI_STRING8_LENGTH + initLength + 1);
     str8 string;
     if (data == nullptr) {
-        memset(sh, 0, AVI_STRING8_LENGTH + initLength + 1);
+        memset(memReference, 0, AVI_STRING8_LENGTH + initLength + 1);
     }
-    if (sh == nullptr)
+    if (memReference == nullptr)
         return NULL;
-    string = (char *) sh + AVI_STRING8_LENGTH;
+    string = (char *) memReference + AVI_STRING8_LENGTH;
     str8SetLengthAllocated(string, initLength, initLength);
     memcpy(string, data, initLength);
     string[initLength] = '\0';
@@ -54,7 +59,7 @@ str8 str8MakeRoomFor(str8 string, uint16_t addLength) {
 
 /* Removes all free space at the end of str8 */
 str8 str8RemoveFreeSpace(str8 string) {
-    uint16_t stringLength = str8Length(string);
+    uint16_t stringLength = str8Length((const char *) string);
     void *newString = realloc(string, AVI_STRING8_LENGTH + stringLength + 1);
     if (newString == NULL)
         return NULL;
@@ -89,7 +94,7 @@ str8 str8Append(str8 string, const char *other, uint16_t otherLength) {
 
 /* Recalculates the string length */
 void str8UpdateLength(str8 string) {
-    str8SetLength(string, str8Length(string));
+    str8SetLength(string, str8Length((const char *) string));
 }
 
 /* Set the length to 0 and puts the null character at start */
@@ -104,4 +109,9 @@ void str8Free(str8 string) {
         return;
     free(string - (sizeof(struct AVI_String8)));
 }
+
+//std::ostream& operator<< (std::ostream& stream, const str8 &string) {
+//    stream << string;
+//    return stream;
+//}
 
