@@ -1,6 +1,8 @@
 #include "graphics/api/Platform.h"
 #include "graphics/api/WIN32/Win32Window.h"
 
+#include "util/string/AVI_String8.h"
+
 #include <iostream>
 
 #if defined(AVI_PLATFORM_WIN32)
@@ -11,6 +13,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
     UNREFERENCED_PARAMETER(lpCmdLine);
     UNREFERENCED_PARAMETER(nCmdShow);
 
+#if 0
     Win32Window appWindow = Win32Window(hInstance, 1280, 720);
 
     MSG msg{};
@@ -24,6 +27,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
             break;
         }
     }
+#endif
 }
 
 #elif defined(AVI_PLATFORM_APPLE) || defined(AVI_PLATFORM_LINUX)
