@@ -31,7 +31,8 @@ namespace Memory {
         }
     }
 
-    void hexDump(void *addr, int len)
+
+    inline void memoryHexDump(void *addr, int len)
     {
         int i;
         unsigned char buff[17];
