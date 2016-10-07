@@ -21,10 +21,10 @@ static PIXELFORMATDESCRIPTOR getPixelFormatDescriptor() {
     return PixelFormatDesc;
 };
 
-Win32Window::Win32Window() : Win32Window(640, 480) {
+Win32Window::Win32Window() : Win32Window(GetModuleHandle(0), 640, 480) {
 }
 
-Win32Window::Win32Window(int16_t width, int16_t height) {
+Win32Window::Win32Window(HINSTANCE hInst, int16_t width, int16_t height) {
     ApplicationHandle = this;
     windowWidth = width;
     windowHeight = height;
@@ -35,7 +35,7 @@ Win32Window::Win32Window(int16_t width, int16_t height) {
     winClassEX.lpfnWndProc = WndProc; //TODO Create Own Application Proc
     winClassEX.cbClsExtra = 0;
     winClassEX.cbWndExtra = 0;
-    winClassEX.hInstance = GetModuleHandle(0);
+    winClassEX.hInstance = hInst;
     winClassEX.hIcon = LoadIcon(nullptr, IDI_WINLOGO);
     winClassEX.hIconSm = winClassEX.hIcon;
     winClassEX.hCursor = LoadCursor(nullptr, IDC_ARROW);

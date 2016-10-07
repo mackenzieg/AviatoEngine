@@ -28,7 +28,9 @@ set(SOURCE_FILES
         graphics/api/Platform.h
         graphics/Application.cpp graphics/Application.h
         graphics/api/WIN32/Win32Window.cpp graphics/api/WIN32/Win32Window.h
-        graphics/api/Platform.h util/string/AVI_String8.cpp util/string/AVI_String8.h util/string/AVI_String16.cpp util/string/AVI_String16.h)
+        graphics/api/Platform.h)
+        #util/string/AVI_String8.cpp util/string/AVI_String8.h
+        #util/string/AVI_String16.cpp util/string/AVI_String16.h)
 
 file(GLOB SOURCES "AviatoEngine/*.cpp")
 file(GLOB HEADERS "AviatoEngine/*.h")

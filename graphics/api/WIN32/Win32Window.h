@@ -17,7 +17,7 @@ public:
 
 public:
     Win32Window();
-    Win32Window(int16_t width, int16_t height);
+    Win32Window(HINSTANCE hInst, int16_t width, int16_t height);
     ~Win32Window();
 
     LRESULT CALLBACK MessageHandler(HWND, UINT, WPARAM, LPARAM);
