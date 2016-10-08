@@ -1,14 +1,19 @@
 #include <iostream>
+#include <cstdlib>
+#include <Vector4.h>
 #include "graphics/api/Platform.h"
 #include "graphics/api/WIN32/Win32Window.h"
-
 #include "string/AVI_String.h"
+
+//#include "util/LeakDetector.h"
 
 #if defined(AVI_PLATFORM_WIN32)
 
 //Window Entry Point
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
-{
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
+
+    //atexit(report_mem_leak);
+
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
     UNREFERENCED_PARAMETER(nCmdShow);
